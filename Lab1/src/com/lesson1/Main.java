@@ -1,7 +1,7 @@
 package com.lesson1;
 
 import com.lesson1.students.Students;
-import com.lesson1.workers.Workers;
+import com.lesson1.films.Films;
 
 import java.util.Locale;
 import java.util.Scanner;
@@ -17,8 +17,8 @@ public class Main {
 
         System.out.println("=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
 
-        Workers workers = Util.generateWorkers(scanner);
-        System.out.println(workers.toString());
+        Films films = Util.generateFilms(scanner);
+        System.out.println(films.toString());
 
         scanner.close();
     }

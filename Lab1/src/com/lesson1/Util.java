@@ -2,8 +2,8 @@ package com.lesson1;
 
 import com.lesson1.students.Student;
 import com.lesson1.students.Students;
-import com.lesson1.workers.Worker;
-import com.lesson1.workers.Workers;
+import com.lesson1.films.Film;
+import com.lesson1.films.Films;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -104,31 +104,34 @@ public class Util {
         return students;
     }
 
-    public static Workers generateWorkers(Scanner scanner) {
-        System.out.print("Pass the amount of workers: ");
+    public static Films generateFilms(Scanner scanner) {
+
+        System.out.print("TASK №2: ");
+        System.out.println("\n=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=");
+        System.out.print("\nPass the amount of films: ");
         final int N = scanner.nextInt();
         scanner.nextLine();
 
-        Workers workers = new Workers();
+        Films films = new Films();
 
         for (int i = 0; i < N; i++) {
-            Worker simpleWorker = new Worker();
+            Film simpleFilm = new Film();
 
-            System.out.println("\n====== WORKER #" + (i + 1) + " ======");
+            System.out.println("\n====== FILM #" + (i + 1) + " ======");
 
-            System.out.print("Enter the surname of worker: ");
-            simpleWorker.setSurname(scanner.nextLine());
+            System.out.print("Enter the title of film: ");
+            simpleFilm.setTitle(scanner.nextLine());
 
-            // Date of signing
+            // Date of creation
             while (true) {
-                System.out.print("Enter the date and time (dd/MM/yyyy date format && hh:mm time format): ");
+                System.out.print("Enter the date and time (dd/MM/yyyy // hh:mm): ");
                 String scannedDate = scanner.nextLine();
 
                 try {
-                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
+                    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("REnter pls, dd/MM/yyyy HH:mm");
                     LocalDateTime sessionTime = LocalDateTime.parse(scannedDate, formatter);
 
-                    simpleWorker.setSigningDate(sessionTime);
+                    simpleFilm.setSessionDate(sessionTime);
                     break;
                 } catch (Exception ignored) {
                 }
@@ -140,29 +143,29 @@ public class Util {
                 System.out.print("Enter the duration: ");
 
                 while (!scanner.hasNextDouble()) {
-                    System.err.print("Enter the duration: ");
+                    System.err.print("No, REnter the duration: ");
                     scanner.next();
                 }
 
                 duration = scanner.nextDouble();
-                simpleWorker.setTimeDuration(duration);
+                simpleFilm.setTimeDuration(duration);
             } while (duration <= 0);
 
 
             // Genre
             scanner.nextLine();
             System.out.print("Enter the genre: ");
-            simpleWorker.setPosition(scanner.nextLine());
+            simpleFilm.setGenre(scanner.nextLine());
 
             // Budget
-            System.out.print("Enter the budget: ");
-            simpleWorker.setBudget(scanner.nextDouble());
+            System.out.print("REnter the budget: ");
+            simpleFilm.setBudget(scanner.nextDouble());
             scanner.nextLine();
 
-            workers.addWorker(simpleWorker);
+            films.addFilm(simpleFilm);
         }
 
-        return workers;
+        return films;
     }
 
     public static boolean checkTime(String time) {
