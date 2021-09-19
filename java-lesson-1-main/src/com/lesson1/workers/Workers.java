@@ -22,11 +22,11 @@ public class Workers {
     public String toString() {
         StringBuilder answer = new StringBuilder();
         for (Worker worker : workers) {
-            LocalDateTime sessionDate = worker.getSessionDate();
+            LocalDateTime sessionDate = worker.getSigningDate();
 
-            if (worker.getTimeDuration() > 1.4 && sessionDate.getHour() >= 18 && sessionDate.getMinute() > 0) {
+            if (worker.getTimeValidity() > 1.4 && sessionDate.getHour() >= 18 && sessionDate.getMinute() > 0) {
                 String date = String.format("%d/%s/%d %d:%d", sessionDate.getDayOfMonth(), sessionDate.getMonthValue(), sessionDate.getYear(), sessionDate.getHour(), sessionDate.getMinute());
-                answer.append(String.format("\n\n[RESULT]\nName: %s\nSession Date: %s\nDuration: %.1f\nGenres (-s): %s\nBudget: %.1f $\n", worker.getTitle(), date, worker.getTimeDuration(), worker.getGenre(), worker.getBudget()));
+                answer.append(String.format("\n\n[RESULT]\nName: %s\nSession Date: %s\nDuration: %.1f\nGenres (-s): %s\nBudget: %.1f $\n", worker.getSurname(), date, worker.getTimeValidity(), worker.getPosition(), worker.getSalary()));
             }
         }
         return answer.toString();

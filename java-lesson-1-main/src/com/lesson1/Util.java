@@ -105,21 +105,21 @@ public class Util {
     }
 
     public static Workers generateWorkers(Scanner scanner) {
-        System.out.print("Pass the amount of films: ");
+        System.out.print("Pass the amount of workers: ");
         final int N = scanner.nextInt();
         scanner.nextLine();
 
-        Workers films = new Workers();
+        Workers workers = new Workers();
 
         for (int i = 0; i < N; i++) {
-            Worker simpleFilm = new Worker();
+            Worker simpleWorker = new Worker();
 
-            System.out.println("\n====== FILM #" + (i + 1) + " ======");
+            System.out.println("\n====== WORKER #" + (i + 1) + " ======");
 
-            System.out.print("Enter the title of film: ");
-            simpleFilm.setTitle(scanner.nextLine());
+            System.out.print("Enter the surname of worker: ");
+            simpleWorker.setSurname(scanner.nextLine());
 
-            // Date of creation
+            // Date of signing
             while (true) {
                 System.out.print("Enter the date and time (dd/MM/yyyy date format && hh:mm time format): ");
                 String scannedDate = scanner.nextLine();
@@ -128,7 +128,7 @@ public class Util {
                     DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm");
                     LocalDateTime sessionTime = LocalDateTime.parse(scannedDate, formatter);
 
-                    simpleFilm.setSessionDate(sessionTime);
+                    simpleWorker.setSigningDate(sessionTime);
                     break;
                 } catch (Exception ignored) {
                 }
@@ -145,24 +145,24 @@ public class Util {
                 }
 
                 duration = scanner.nextDouble();
-                simpleFilm.setTimeDuration(duration);
+                simpleWorker.setTimeDuration(duration);
             } while (duration <= 0);
 
 
             // Genre
             scanner.nextLine();
             System.out.print("Enter the genre: ");
-            simpleFilm.setGenre(scanner.nextLine());
+            simpleWorker.setPosition(scanner.nextLine());
 
             // Budget
             System.out.print("Enter the budget: ");
-            simpleFilm.setBudget(scanner.nextDouble());
+            simpleWorker.setBudget(scanner.nextDouble());
             scanner.nextLine();
 
-            films.addWorker(simpleFilm);
+            workers.addWorker(simpleWorker);
         }
 
-        return films;
+        return workers;
     }
 
     public static boolean checkTime(String time) {

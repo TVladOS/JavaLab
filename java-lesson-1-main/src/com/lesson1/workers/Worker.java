@@ -13,50 +13,50 @@ import java.time.LocalDateTime;
 
 public class Worker {
     private String surname;
-    private LocalDateTime sessionDate;
-    private double timeDuration;
-    private String genre;
-    private double budget;
+    private LocalDateTime signingDate;
+    private double timeValidity;
+    private String position;
+    private double salary;
 
-    public String getTitle() {
+    public String getSurname() {
         return surname;
     }
 
-    public void setTitle(String title) {
-        this.surname = title;
+    public void setSurname(String surname) {
+        this.surname = surname;
     }
 
-    public LocalDateTime getSessionDate() {
-        return this.sessionDate;
+    public LocalDateTime getSigningDate() {
+        return this.signingDate;
     }
 
-    public void setSessionDate(LocalDateTime sessionDate) {
-        this.sessionDate = sessionDate;
+    public void setSigningDate(LocalDateTime signingDate) {
+        this.signingDate = signingDate;
     }
 
-    public double getTimeDuration() {
-        return timeDuration;
+    public double getTimeValidity() {
+        return timeValidity;
     }
 
     public void setTimeDuration(double timeDuration) {
         DecimalFormat df = new DecimalFormat("#0.0");
         String s = df.format(timeDuration);
-        this.timeDuration = s.contains(".6") ? Math.ceil(timeDuration) : timeDuration;
+        this.timeValidity = s.contains(".6") ? Math.ceil(timeDuration) : timeDuration;
     }
 
-    public String getGenre() {
-        return genre;
+    public String getPosition() {
+        return position;
     }
 
-    public void setGenre(String genre) {
-        this.genre = genre;
+    public void setPosition(String position) {
+        this.position = position;
     }
 
-    public double getBudget() {
-        return budget;
+    public double getSalary() {
+        return salary;
     }
 
-    public void setBudget(double budget) {
-        this.budget = (int) budget;
+    public void setSalary(double salary) {
+        this.salary = (int) salary;
     }
 }
