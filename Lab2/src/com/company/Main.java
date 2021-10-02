@@ -9,6 +9,7 @@ import static java.lang.Math.*;
 
 public class Main {
 
+    
     public static void main(String[] args) {
         int m = new Scanner(System.in).nextInt();
         int n = new Scanner(System.in).nextInt();
